@@ -18,27 +18,24 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SafeArea(child: screens[index]),
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         index: index,
-        color: Color.fromARGB(255, 124, 224, 115),
+        color: Color.fromARGB(255, 255, 213, 115),
         items: const <Widget>[
           Icon(
             Icons.home,
             size: 30,
-       
           ),
           Icon(
             Icons.list,
             size: 30,
-       
           ),
           Icon(
             Icons.person,
             size: 30,
-       
           ),
         ],
         onTap: (index) {

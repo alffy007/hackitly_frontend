@@ -17,14 +17,19 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(
+          height: 10,
+        ),
+        Image(image: AssetImage('assets/images/search.png')),
         Text(
-          'Hi, Alfred!',
-          style: GoogleFonts.poppins(
+          'Hey Alfred',
+          textAlign: TextAlign.left,
+          style: GoogleFonts.getFont(
+            "Mitr",
             textStyle: const TextStyle(
-                color: Colors.white,
-                letterSpacing: .5,
-                fontSize: 20,
-                fontWeight: FontWeight.w500),
+              color: Color.fromARGB(255, 0, 0, 0),
+              fontSize: 30,
+            ),
           ),
         ),
         Center(
@@ -39,23 +44,23 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Center(
-            child: Container(
-                height: 160,
-                width: 350,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(223, 66, 66, 66),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Container(
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                  ),
-                )),
-          ),
-        ),
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(vertical: 20),
+        //   child: Center(
+        //     child: Container(
+        //         height: 160,
+        //         width: 350,
+        //         decoration: BoxDecoration(
+        //           color: Color.fromARGB(223, 66, 66, 66),
+        //           borderRadius: BorderRadius.circular(25),
+        //         ),
+        //         child: Container(
+        //           child: Image.asset(
+        //             'assets/images/logo.png',
+        //           ),
+        //         )),
+        //   ),
+        // ),
         Text(
           'How can i help you?',
           style: GoogleFonts.poppins(

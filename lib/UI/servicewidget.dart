@@ -22,126 +22,152 @@ class _ServiceWidgetState extends State<ServiceWidget> {
             children: [
               GestureDetector(
                 onTap: () {
-                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const YoutubeScreen()),
-                                      );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const YoutubeScreen()),
+                  );
                 },
                 child: Container(
                   width: 160,
                   height: 150,
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 250, 200, 125),
-                      borderRadius: BorderRadius.circular(25)),
+                    // color: Color.fromARGB(255, 250, 200, 125),
+                    borderRadius: BorderRadius.circular(25),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/kerala.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const SizedBox(
+                        height: 85,
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Text(
-                          'YouTube',
-                          style: GoogleFonts.poppins(
+                          'kerala',
+                          textAlign: TextAlign.left,
+                          style: GoogleFonts.getFont(
+                            "Mitr",
                             textStyle: const TextStyle(
-                                color: Color.fromARGB(255, 15, 15, 15),
-                                letterSpacing: .5,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500),
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 40),
-                        child: SvgPicture.asset(
-                          'assets/images/youtube.svg',
-                          width: 100,
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(left: 40),
+                      //   child: SvgPicture.asset(
+                      //     'assets/images/youtube.svg',
+                      //     width: 100,
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Container(
                 width: 160,
                 height: 150,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 249, 144, 144),
-                    borderRadius: BorderRadius.circular(25)),
+                  color: Color.fromARGB(255, 250, 200, 125),
+                  borderRadius: BorderRadius.circular(25),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/KARNATAKA.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(
+                      height: 85,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Text(
-                        'PPT',
-                        style: GoogleFonts.poppins(
+                        'karnataka',
+                        textAlign: TextAlign.left,
+                        style: GoogleFonts.getFont(
+                          "Mitr",
                           textStyle: const TextStyle(
-                              color: Color.fromARGB(255, 255, 253, 253),
-                              letterSpacing: .5,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500),
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40),
-                      child: SvgPicture.asset(
-                        'assets/images/ppt.svg',
-                        width: 100,
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 40),
+                    //   child: SvgPicture.asset(
+                    //     'assets/images/youtube.svg',
+                    //     width: 100,
+                    //   ),
+                    // ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           const SizedBox(
-            width: 20,
+            width: 10,
           ),
           Column(
             children: [
               Container(
-                width: 160,
-                height: 200,
+                width: 170,
+                height: 170,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 147, 147, 147),
-                    borderRadius: BorderRadius.circular(25)),
+                  color: Color.fromARGB(255, 250, 200, 125),
+                  borderRadius: BorderRadius.circular(25),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/delhi.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(
+                      height: 85,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Text(
-                        'Wikipedia',
-                        style: GoogleFonts.poppins(
+                        'Delhi',
+                        textAlign: TextAlign.left,
+                        style: GoogleFonts.getFont(
+                          "Mitr",
                           textStyle: const TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255),
-                              letterSpacing: .5,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500),
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40, top: 15),
-                      child: SvgPicture.asset(
-                        'assets/images/wiki.svg',
-                        width: 100,
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 40),
+                    //   child: SvgPicture.asset(
+                    //     'assets/images/youtube.svg',
+                    //     width: 100,
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Container(
-                width: 160,
-                height: 120,
+                width: 170,
+                height: 130,
                 decoration: BoxDecoration(
                     color: Color.fromARGB(255, 166, 190, 255),
                     borderRadius: BorderRadius.circular(25)),
@@ -149,23 +175,17 @@ class _ServiceWidgetState extends State<ServiceWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 8, top: 8),
+                      padding: const EdgeInsets.all(10.0),
                       child: Text(
-                        'PDF',
-                        style: GoogleFonts.poppins(
+                        'Tamil Nadu',
+                        textAlign: TextAlign.left,
+                        style: GoogleFonts.getFont(
+                          "Mitr",
                           textStyle: const TextStyle(
-                              color: Color.fromARGB(255, 15, 15, 15),
-                              letterSpacing: .5,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500),
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 20,
+                          ),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 60),
-                      child: SvgPicture.asset(
-                        'assets/images/pdf.svg',
-                        width: 73,
                       ),
                     ),
                   ],

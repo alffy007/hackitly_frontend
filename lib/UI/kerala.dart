@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proton/UI/chatbot.dart';
 
 class Kerala extends StatelessWidget {
   @override
@@ -22,7 +23,7 @@ class Kerala extends StatelessWidget {
                   // Navigate to another page when the card is tapped
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => MyOtherPage()),
+                    MaterialPageRoute(builder: (context) =>ConversationScreen(chatRoomId: 'xxx',userName: 'YourIndianFriend')),
                   );
                 },
                 child: SizedBox(

@@ -35,7 +35,6 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         // appBar: PreferredSize(
         //   preferredSize: Size.fromHeight(100.0),
         //   child: AppBar(
@@ -48,20 +47,24 @@ class _LoginViewState extends State<LoginView> {
         //     ),
         //   ),
         // ),
-        body: FutureBuilder(
-          future: Firebase.initializeApp(
-            options: DefaultFirebaseOptions.currentPlatform,
+        body: Container(
+            decoration: const BoxDecoration(
+                    image: DecorationImage(
+            image: AssetImage("assets/images/loginback.png"),
+            fit: BoxFit.cover,
           ),
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.done:
-                return ListView(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Column(
+                  ),
+          child: FutureBuilder(
+            future: Firebase.initializeApp(
+              options: DefaultFirebaseOptions.currentPlatform,
+            ),
+            builder: (context, snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.done:
+                  return ListView(
+                    children: [
+                      Column(
                         children: <Widget>[
-                          const Padding(padding: EdgeInsets.all(20)),
                           Text(
                             'Login',
                             style: GoogleFonts.getFont(
@@ -105,7 +108,7 @@ class _LoginViewState extends State<LoginView> {
                                   hintText: "Email",
                                 )),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 10),
                           SizedBox(
                             width: 350,
                             child: TextField(
@@ -137,8 +140,7 @@ class _LoginViewState extends State<LoginView> {
                                               borderRadius: BorderRadius.only(
                                                   topLeft: Radius.circular(20),
                                                   topRight: Radius.circular(20),
-                                                  bottomLeft:
-                                                      Radius.circular(20),
+                                                  bottomLeft: Radius.circular(20),
                                                   bottomRight:
                                                       Radius.circular(20)),
                                               side: BorderSide(
@@ -172,8 +174,8 @@ class _LoginViewState extends State<LoginView> {
                                   //     width: 2.0,
                                   //   ),
                                   // ),
-                                  child:
-                                      const Text("Login", style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)))),
+                                  child: const Text("Login",
+                                      style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)))),
                             ),
                           ),
                           TextButton(
@@ -184,20 +186,22 @@ class _LoginViewState extends State<LoginView> {
                                     builder: (context) => const RegisterView()),
                               );
                             },
-                            child: const Text(
-                                "don't have account, Sign up here!",
+                            child: const Text("Don't have account, Sign up here!",
                                 style: TextStyle(
+                                    decoration: TextDecoration.underline,
                                     color: Color.fromARGB(255, 0, 0, 0))),
                           )
                         ],
-                      ),
-                    )
-                  ],
-                );
-              default:
-                return const Text("Loading....");
-            }
-          },
+                      )
+                    ],
+                  );
+                default:
+                  return Scaffold(
+                      backgroundColor: Colors.blueAccent[300],
+                      body: const Center(child: CircularProgressIndicator()));
+              }
+            },
+          ),
         ));
   }
 }

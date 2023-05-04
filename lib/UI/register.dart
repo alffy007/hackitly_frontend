@@ -17,7 +17,7 @@ class _RegisterViewState extends State<RegisterView> {
   late final TextEditingController _email;
   late final TextEditingController _password;
   late AnimationController controller;
-  String msg = "enter password";
+  String msg = "Enter password";
 
   @override
   void initState() {
@@ -37,7 +37,6 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 213, 115),
       // appBar: PreferredSize(
       //   preferredSize: Size.fromHeight(150.0),
       //   child: AppBar(
@@ -48,24 +47,29 @@ class _RegisterViewState extends State<RegisterView> {
       //     ),
       //   ),
       // ),
-      body: SafeArea(
-        child: FutureBuilder(
-            future: Firebase.initializeApp(
-              options: DefaultFirebaseOptions.currentPlatform,
-            ),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.done:
-                  return ListView(
-                    physics: BouncingScrollPhysics(),
+      body: FutureBuilder(
+          future: Firebase.initializeApp(
+            options: DefaultFirebaseOptions.currentPlatform,
+          ),
+          builder: (context, snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.done:
+                return Container(
+                    decoration: const BoxDecoration(
+                    image: DecorationImage(
+            image: AssetImage("assets/images/loginback.png"),
+            fit: BoxFit.cover,
+          ),
+                  ),
+                  child: ListView(
                     children: [
                       Column(
                         children: [
-                          Padding(padding: EdgeInsets.only(top: 10)),
+                          const Padding(padding: EdgeInsets.only(top: 10)),
                           Text(
                             'Sign Up',
                             style: GoogleFonts.getFont("Mitr",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                   color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 40,
                                 )),
@@ -78,7 +82,7 @@ class _RegisterViewState extends State<RegisterView> {
                           Text(
                             'Welcome back you\'ve been missed!',
                             style: GoogleFonts.getFont("Mitr",
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                   color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 20,
                                 )),
@@ -114,70 +118,75 @@ class _RegisterViewState extends State<RegisterView> {
                                     ),
                                     hintText: "password")),
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 10),
                           SizedBox(
                             height: 50,
                             width: 350,
                             child: ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Color.fromARGB(255, 0, 0, 0)),
-                                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                        const RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(20),
-                                                topRight: Radius.circular(20),
-                                                bottomLeft: Radius.circular(20),
-                                                bottomRight:
-                                                    Radius.circular(20)),
-                                            side: BorderSide(
-                                                color: Color.fromARGB(
-                                                    255, 243, 238, 238))))),
-                                onPressed: () async {
-                                  final email = _email.text;
-                                  final password = _password.text;
-                                  try {
-                                    final userCredentials = await FirebaseAuth
-                                        .instance
-                                        .createUserWithEmailAndPassword(
-                                            email: email, password: password);
-                                    print(userCredentials);
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const HomeScreen()),
-                                    );
-                                  } on FirebaseAuthException catch (e) {
-                                    if (e.code == "weak-password") {
-                                      setState(() {
-                                        msg = "weak password";
-                                      });
-                                      print("weak password");
-                                    } else if (e.code == "email-already-use") {
-                                      setState(() {
-                                        msg = "email already exist";
-                                      });
-                                    } else if (e.code == "invalid-email") {
-                                      setState(() {
-                                        msg = "invalid-email";
-                                      });
-                                    }
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Color.fromARGB(255, 0, 0, 0)),
+                                  shape: MaterialStateProperty.all<
+                                          RoundedRectangleBorder>(
+                                      const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.only(
+                                              topLeft: Radius.circular(20),
+                                              topRight: Radius.circular(20),
+                                              bottomLeft: Radius.circular(20),
+                                              bottomRight: Radius.circular(20)),
+                                          side: BorderSide(
+                                              color: Color.fromARGB(
+                                                  255, 243, 238, 238))))),
+                              onPressed: () async {
+                                final email = _email.text;
+                                final password = _password.text;
+                                try {
+                                  final userCredentials = await FirebaseAuth
+                                      .instance
+                                      .createUserWithEmailAndPassword(
+                                          email: email, password: password);
+                                  print(userCredentials);
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const HomeScreen()),
+                                  );
+                                } on FirebaseAuthException catch (e) {
+                                  if (e.code == "Weak-password") {
+                                    setState(() {
+                                      msg = "Weak password";
+                                    });
+                                    print("Weak password");
+                                  } else if (e.code == "email-already-use") {
+                                    setState(() {
+                                      msg = "email already exist";
+                                    });
+                                  } else if (e.code == "invalid-email") {
+                                    setState(() {
+                                      msg = "invalid-email";
+                                    });
                                   }
-                                },
-                                // style: ElevatedButton.styleFrom(
-                                //   side: BorderSide(
-                                //     width: 2.0,
-                                //   ),
-                                // ),
-                                child: const Text("Create",
-                                    style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)))),
+                                }
+                              },
+                              // style: ElevatedButton.styleFrom(
+                              //   side: BorderSide(
+                              //     width: 2.0,
+                              //   ),
+                              // ),
+                              child: const Text(
+                                "Create",
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                ),
+                              ),
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
                               msg,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 18,
                                   color: Color.fromARGB(255, 0, 0, 0)),
                             ),
@@ -185,12 +194,14 @@ class _RegisterViewState extends State<RegisterView> {
                         ],
                       ),
                     ],
-                  );
-                default:
-                  return const Text("Loading....");
-              }
-            }),
-      ),
+                  ),
+                );
+              default:
+                return Scaffold(
+                    backgroundColor: Colors.blueAccent[300],
+                    body: const Center(child: CircularProgressIndicator()));
+            }
+          }),
     );
   }
 }

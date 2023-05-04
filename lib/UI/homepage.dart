@@ -15,20 +15,44 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         SizedBox(
           height: 10,
         ),
-        Image(image: AssetImage('assets/images/search.png')),
-        Text(
-          'Hey Alfred',
-          textAlign: TextAlign.left,
-          style: GoogleFonts.getFont(
-            "Mitr",
-            textStyle: const TextStyle(
-              color: Color.fromARGB(255, 0, 0, 0),
-              fontSize: 30,
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: 'Search...',
+              // Add a clear button to the search bar
+              suffixIcon: IconButton(
+                icon: Icon(Icons.clear),
+                onPressed: () => {},
+              ),
+              // Add a search icon or button to the search bar
+              prefixIcon: IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {
+                  // Perform the search here
+                },
+              ),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+            ),
+          ),
+        ),
+        Center(
+          child: Text(
+            'Hey Alfred',
+            textAlign: TextAlign.left,
+            style: GoogleFonts.getFont(
+              "Mitr",
+              textStyle: const TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: 30,
+              ),
             ),
           ),
         ),

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:proton/UI/chatbot.dart';
 
+
 class Kerala extends StatelessWidget {
+  const Kerala({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 255, 213, 115),
       body: SafeArea(
         top: true,
         child: Column(
@@ -13,8 +18,14 @@ class Kerala extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Text(
-                'My App',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                'Kerala- The God\'s own Country',
+                style: GoogleFonts.getFont(
+                  "Mitr",
+                  textStyle: const TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 24,
+                      fontWeight: FontWeight.normal),
+                ),
               ),
             ),
             Expanded(
@@ -23,11 +34,14 @@ class Kerala extends StatelessWidget {
                   // Navigate to another page when the card is tapped
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>ConversationScreen(chatRoomId: 'xxx',userName: 'YourIndianFriend')),
+                    MaterialPageRoute(
+                      builder: (context) => const ConversationScreen(
+                          chatRoomId: 'xxx', userName: 'YourIndianFriend'),
+                    ),
                   );
                 },
-                child: SizedBox(
-                  height: 10,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 280),
                   child: Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
@@ -37,10 +51,9 @@ class Kerala extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ClipRRect(
-                          borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(10)),
+                          borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            'assets/images/delhi.jpg',
+                            'assets/images/kerala.jpg',
                             width: double.infinity,
                             height: 200,
                             fit: BoxFit.cover,
@@ -51,14 +64,20 @@ class Kerala extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 'Title',
                                 style: TextStyle(fontSize: 24),
                               ),
-                              SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Text(
                                 'Description',
-                                style: TextStyle(fontSize: 18),
+                                style: GoogleFonts.getFont(
+                                  "Mitr",
+                                  textStyle: const TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 18,
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -70,19 +89,6 @@ class Kerala extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class MyOtherPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Text('This is another page!'),
         ),
       ),
     );

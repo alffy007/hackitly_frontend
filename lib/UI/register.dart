@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../services/firebase_options.dart';
+import 'home.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -141,8 +142,11 @@ class _RegisterViewState extends State<RegisterView> {
                                       .createUserWithEmailAndPassword(
                                           email: email, password: password);
                                   print(userCredentials);
-                                  Navigator.of(context).pushNamedAndRemoveUntil(
-                                      "/home/", (route) => true);
+                                    Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomeScreen()),
+                              );
                                 } on FirebaseAuthException catch (e) {
                                   if (e.code == "weak-password") {
                                     setState(() {

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:proton/UI/register.dart';
 import 'package:video_player/video_player.dart';
 
-class first extends StatefulWidget {
-  const first({Key? key}) : super(key: key);
+import 'login.dart';
+
+class First extends StatefulWidget {
+  const First({Key? key}) : super(key: key);
 
   @override
-  State<first> createState() => _firstState();
+  State<First> createState() => _FirstState();
 }
 
-class _firstState extends State<first> {
+class _FirstState extends State<First> {
   late final VideoPlayerController controller;
   bool isLoaded = true;
   @override
@@ -90,8 +93,10 @@ class _firstState extends State<first> {
                               ),
                             )),
                         onPressed: () {
-                          Navigator.of(context).pushNamedAndRemoveUntil(
-                              "/login/", (route) => false);
+                         Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const LoginView()),
+            );
                         },
                         child: const Text(
                           'login',
@@ -105,8 +110,10 @@ class _firstState extends State<first> {
                   Expanded(
                     child: TextButton(
                         onPressed: () {
-                          Navigator.of(context).pushNamedAndRemoveUntil(
-                              "/register/", (route) => false);
+                           Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const RegisterView()),
+            );
                         },
                         child: const Text(
                           'register',
@@ -119,7 +126,7 @@ class _firstState extends State<first> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
           ]),

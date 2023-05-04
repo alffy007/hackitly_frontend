@@ -47,31 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA92odyF6cHYokNYouJkiUfzdLqwdOrYpQ',
-    appId: '1:564751904449:web:ef2b359f01229340962e40',
-    messagingSenderId: '564751904449',
-    projectId: 'proton-911e9',
-    authDomain: 'proton-911e9.firebaseapp.com',
-    storageBucket: 'proton-911e9.appspot.com',
-    measurementId: 'G-ZY4Z8R04JL',
+   apiKey: 'AIzaSyAKyEiSrtA3ve_nyqJCw-5QwpgygMnWQrE',
+  authDomain: 'proton-1fb0d.firebaseapp.com',
+  projectId: 'proton-1fb0d',
+  storageBucket: 'proton-1fb0d.appspot.com',
+  messagingSenderId: '863161675377',
+  appId: '1:863161675377:web:57720b03e12199d7cf35d0'
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBurzUyNpf8h_KoEL58pkrNlHW88N_nrGg',
-    appId: '1:564751904449:android:3e2260bc21326013962e40',
-    messagingSenderId: '564751904449',
-    projectId: 'proton-911e9',
-    storageBucket: 'proton-911e9.appspot.com',
+   apiKey: 'AIzaSyAKyEiSrtA3ve_nyqJCw-5QwpgygMnWQrE',
+  authDomain: 'proton-1fb0d.firebaseapp.com',
+  projectId: 'proton-1fb0d',
+  storageBucket: 'proton-1fb0d.appspot.com',
+  messagingSenderId: '863161675377',
+  appId: '1:863161675377:web:57720b03e12199d7cf35d0'
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAWJAnRLmntMQvMD2bl0ui3WHXvtJuNZGE',
-    appId: '1:564751904449:ios:cf34482e2f01d15e962e40',
-    messagingSenderId: '564751904449',
-    projectId: 'proton-911e9',
-    storageBucket: 'proton-911e9.appspot.com',
-    iosClientId:
-        '564751904449-98e0ro6qnimgcbrs8skhhm3g49aqng9f.apps.googleusercontent.com',
-    iosBundleId: 'com.example.proton',
+   apiKey: 'AIzaSyAKyEiSrtA3ve_nyqJCw-5QwpgygMnWQrE',
+  authDomain: 'proton-1fb0d.firebaseapp.com',
+  projectId: 'proton-1fb0d',
+  storageBucket: 'proton-1fb0d.appspot.com',
+  messagingSenderId: '863161675377',
+  appId: '1:863161675377:web:57720b03e12199d7cf35d0'
   );
 }

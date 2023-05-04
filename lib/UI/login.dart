@@ -35,7 +35,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 17, 29, 59),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         // appBar: PreferredSize(
         //   preferredSize: Size.fromHeight(100.0),
         //   child: AppBar(
@@ -65,23 +65,23 @@ class _LoginViewState extends State<LoginView> {
                           Text(
                             'Login',
                             style: GoogleFonts.getFont(
-                              "Poppins",
+                              "Mitr",
                               textStyle: const TextStyle(
-                                color: Color.fromARGB(255, 253, 250, 250),
+                                color: Color.fromARGB(255, 0, 0, 0),
                                 fontSize: 40,
                               ),
                             ),
                           ),
                           Image.asset(
-                            'assets/inhalake.png',
+                            'assets/images/loginimg.png',
                             height: 300,
                             width: 300,
                           ),
                           Text(
                             'Welcome back you\'ve been missed!',
-                            style: GoogleFonts.getFont("Poppins",
+                            style: GoogleFonts.getFont("Mitr",
                                 textStyle: TextStyle(
-                                  color: Color.fromARGB(255, 253, 250, 250),
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize: 20,
                                 )),
                           ),
@@ -130,9 +130,8 @@ class _LoginViewState extends State<LoginView> {
                               height: 60,
                               child: ElevatedButton(
                                   style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              Color(0xFF2dfff5)),
+                                      backgroundColor: MaterialStateProperty.all(
+                                          Color.fromARGB(255, 0, 0, 0)),
                                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                           const RoundedRectangleBorder(
                                               borderRadius: BorderRadius.only(
@@ -173,8 +172,8 @@ class _LoginViewState extends State<LoginView> {
                                   //     width: 2.0,
                                   //   ),
                                   // ),
-                                  child: const Text("Login",
-                                      style: TextStyle(color: Color.fromARGB(255, 10, 9, 7)))),
+                                  child:
+                                      const Text("Login", style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)))),
                             ),
                           ),
                           TextButton(
@@ -185,8 +184,10 @@ class _LoginViewState extends State<LoginView> {
                                     builder: (context) => const RegisterView()),
                               );
                             },
-                            child:
-                                const Text("don't have account, Sign up here!"),
+                            child: const Text(
+                                "don't have account, Sign up here!",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0))),
                           )
                         ],
                       ),

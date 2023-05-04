@@ -33,16 +33,6 @@ class _FirstState extends State<First> {
           visible: isLoaded,
           replacement: const Center(child: CircularProgressIndicator()),
           child: Column(children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(35),
-              child: Container(
-                height: 400,
-                width: double.infinity,
-                child: VideoPlayer(controller),
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(200)),
-              ),
-            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -50,10 +40,10 @@ class _FirstState extends State<First> {
                   child: Text(
                       "Breathe in.\nDrink up.\nMonitor your air and water quality with ease!!!",
                       textAlign: TextAlign.center,
-                      style: GoogleFonts.getFont("Kanit",
+                      style: GoogleFonts.getFont("Mitr",
                           textStyle: const TextStyle(
                             color: Color.fromARGB(255, 253, 250, 250),
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.normal,
                             fontSize: 30,
                           ))),
                 ),
@@ -93,10 +83,11 @@ class _FirstState extends State<First> {
                               ),
                             )),
                         onPressed: () {
-                         Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const LoginView()),
-            );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginView()),
+                          );
                         },
                         child: const Text(
                           'login',
@@ -110,10 +101,11 @@ class _FirstState extends State<First> {
                   Expanded(
                     child: TextButton(
                         onPressed: () {
-                           Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const RegisterView()),
-            );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const RegisterView()),
+                          );
                         },
                         child: const Text(
                           'register',

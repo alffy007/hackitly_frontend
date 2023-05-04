@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:proton/UI/youtube.dart';
+import 'package:proton/UI/kerala.dart';
+import 'package:proton/UI/kerala.dart';
 
 class ServiceWidget extends StatefulWidget {
   const ServiceWidget({super.key});
@@ -24,8 +25,7 @@ class _ServiceWidgetState extends State<ServiceWidget> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const YoutubeScreen()),
+                    MaterialPageRoute(builder: (context) => Kerala()),
                   );
                 },
                 child: Container(
@@ -128,7 +128,7 @@ class _ServiceWidgetState extends State<ServiceWidget> {
                   color: Color.fromARGB(255, 250, 200, 125),
                   borderRadius: BorderRadius.circular(25),
                   image: DecorationImage(
-                    image: AssetImage('assets/images/delhi.png'),
+                    image: AssetImage('assets/images/delhi.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -136,7 +136,7 @@ class _ServiceWidgetState extends State<ServiceWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(
-                      height: 85,
+                      height: 105,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -170,10 +170,17 @@ class _ServiceWidgetState extends State<ServiceWidget> {
                 height: 130,
                 decoration: BoxDecoration(
                     color: Color.fromARGB(255, 166, 190, 255),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/tamilnadu.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                     borderRadius: BorderRadius.circular(25)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(
+                      height: 75,
+                    ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Text(

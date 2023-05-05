@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: CurvedNavigationBar(
         index: index,
         backgroundColor: Colors.transparent,
-        color: Color.fromARGB(255, 165, 230, 255),
+        color: Color(0xFFA5E6FF),
         items: const <Widget>[
           Icon(
             Icons.home,

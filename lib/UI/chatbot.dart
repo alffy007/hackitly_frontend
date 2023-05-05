@@ -74,9 +74,9 @@ class _ConversationScreenState extends State<ConversationScreen> {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(80),
-            color: Color.fromARGB(255, 42, 47, 102),
+            color: const Color.fromARGB(255, 42, 47, 102),
           ),
-          padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: Row(
             children: [
               Expanded(
@@ -124,7 +124,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 245, 244, 246),
+        backgroundColor: const Color.fromARGB(255, 245, 244, 246),
         appBar: AppBar(
           title: Text(
             widget.userName,
@@ -188,7 +188,7 @@ class MessageTiles extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
           child: Container(
-              constraints: BoxConstraints(maxWidth: 250),
+              constraints: const BoxConstraints(maxWidth: 250),
               decoration: BoxDecoration(
                 gradient: sendbyme
                     ? const LinearGradient(

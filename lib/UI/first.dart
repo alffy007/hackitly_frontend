@@ -17,7 +17,7 @@ class _FirstState extends State<First> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black54,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Visibility(
         visible: isLoaded,
         replacement: const Center(child: CircularProgressIndicator()),
@@ -54,7 +54,7 @@ class _FirstState extends State<First> {
                   style: GoogleFonts.getFont(
                     "Poppins",
                     textStyle: const TextStyle(
-                      color: Color.fromARGB(255, 3, 255, 167),
+                      color: Color(0xFFA5E6FF),
                       fontWeight: FontWeight.w700,
                       fontSize: 45,
                     ),
@@ -64,30 +64,20 @@ class _FirstState extends State<First> {
               const SizedBox(
                 width: 40,
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginView()),
-                    );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 120),
-                    child: const Icon(
-                      Icons.arrow_circle_right_outlined,
-                      color: Colors.white,
-                      size: 70.0,
-                    ),
-                  ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginView()),
+                  );
+                },
+                child: const Icon(
+                  Icons.arrow_circle_right_outlined,
+                  color: Colors.white,
+                  size: 70.0,
                 ),
               ),
             ],
-          ),
-          const SizedBox(
-            height: 20,
           ),
         ]),
       ),

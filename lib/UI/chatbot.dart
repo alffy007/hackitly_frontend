@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_database/firebase_database.dart';
+import '../services/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class ConversationScreen extends StatefulWidget {
   const ConversationScreen(
@@ -13,31 +16,49 @@ class ConversationScreen extends StatefulWidget {
 
 class _ConversationScreenState extends State<ConversationScreen> {
   TextEditingController messageController = TextEditingController();
-  List messages = [];
+  FirebaseDatabase database = FirebaseDatabase.instance;
+  var student = {};
   int index = 0;
+  String _msg = '';
   Widget chatMessageList() {
     return Stack(children: [
       Center(
           child: Image.asset('assets/images/loginimg.png',
-              height: 300,
-              width: 300,
               opacity: const AlwaysStoppedAnimation(.5))),
-      ListView.builder(
-          shrinkWrap: true,
-          reverse: true,
-          itemCount: messages.length,
-          itemBuilder: (BuildContext context, int index) {
-            return MessageTiles(message: messages[index], sendbyme: true);
-          }),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Expanded(
+            child: ListView.builder(
+                shrinkWrap: true,
+                reverse: true,
+                itemCount: student.length,
+                itemBuilder: (BuildContext context, int index) {
+                  int lastIndex = (student.length - index) - 1;
+                  if (student['user$lastIndex'] == null) {
+                    _msg = student['user$lastIndex bot'];
+                  } else {
+                    _msg = student['user$lastIndex'];
+                  }
+                  return MessageTiles(
+                      message: _msg,
+                      sendbyme:
+                          student.keys.toList().contains('user$lastIndex'));
+                }),
+          ),
+        ],
+      ),
     ]);
   }
 
   sendMessage() {
     if (messageController.text.isNotEmpty) {
       setState(() {
-        messages.insert(0, messageController.text);
-        index += 1;
+        student['user$index'] = messageController.text;
+
         messageController.text = "";
+
+        index += 1;
       });
     }
   }
@@ -114,9 +135,29 @@ class _ConversationScreenState extends State<ConversationScreen> {
           shadowColor: Colors.purple,
           toolbarHeight: 70,
         ),
-        body: Column(
-          children: [Expanded(child: chatMessageList()), MessageBar()],
-        ));
+        body: FutureBuilder(
+            future: Firebase.initializeApp(
+              options: DefaultFirebaseOptions.currentPlatform,
+            ),
+            builder: (context, snapshot) {
+              DatabaseReference testref = FirebaseDatabase.instance
+                  .ref()
+                  .child('kerala')
+                  .child('fort kochi');
+              testref.child('answer').onValue.listen((event) {
+                if (event.snapshot.value.toString() != '') {
+                  setState(() {
+                    student['user$index bot'] = event.snapshot.value.toString();
+                    index++;
+                  });
+                  print(event.snapshot.value.toString());
+                }
+              });
+
+              return Column(
+                children: [Expanded(child: chatMessageList()), MessageBar()],
+              );
+            }));
   }
 }
 
@@ -135,6 +176,7 @@ class MessageTiles extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
           child: Container(
+              constraints: BoxConstraints(maxWidth: 250),
               decoration: BoxDecoration(
                 gradient: sendbyme
                     ? const LinearGradient(

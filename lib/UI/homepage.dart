@@ -1,9 +1,9 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:proton/UI/servicewidget.dart';
+import 'package:proton/UI/servicewidget2.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -16,8 +16,9 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: const BouncingScrollPhysics(),
       children: [
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Padding(
@@ -56,18 +57,18 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
         ),
-        Center(
-          child: Text(
-            'Welcome back!',
-            style: GoogleFonts.poppins(
-              textStyle: const TextStyle(
-                  color: Color.fromARGB(255, 121, 121, 121),
-                  letterSpacing: .5,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400),
-            ),
-          ),
-        ),
+        // Center(
+        //   child: Text(
+        //     'Welcome back!',
+        //     style: GoogleFonts.poppins(
+        //       textStyle: const TextStyle(
+        //           color: Color.fromARGB(255, 121, 121, 121),
+        //           letterSpacing: .5,
+        //           fontSize: 15,
+        //           fontWeight: FontWeight.w400),
+        //     ),
+        //   ),
+        // ),
         // Padding(
         //   padding: const EdgeInsets.symmetric(vertical: 20),
         //   child: Center(
@@ -85,17 +86,37 @@ class _HomepageState extends State<Homepage> {
         //         )),
         //   ),
         // ),
-        Text(
-          'How can i help you?',
-          style: GoogleFonts.poppins(
-            textStyle: const TextStyle(
-                color: Color.fromARGB(255, 255, 252, 252),
-                letterSpacing: .5,
-                fontSize: 15,
-                fontWeight: FontWeight.w400),
+        Padding(
+          padding: const EdgeInsets.only(left: 20, top: 25),
+          child: Text(
+            'Where do you wanna go?',
+            style: GoogleFonts.poppins(
+              textStyle: const TextStyle(
+                  color: Color.fromARGB(255, 81, 81, 81),
+                  letterSpacing: .5,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400),
+            ),
           ),
         ),
-        ServiceWidget()
+        const ServiceWidget(),
+        Padding(
+          padding: const EdgeInsets.only(left: 20, top: 25),
+          child: Text(
+            'Top destinations in india',
+            style: GoogleFonts.poppins(
+              textStyle: const TextStyle(
+                  color: Color.fromARGB(255, 81, 81, 81),
+                  letterSpacing: .5,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400),
+            ),
+          ),
+        ),
+        const Padding(
+          padding: EdgeInsets.all(20.0),
+          child: ServiceWidget2(),
+        ),
       ],
     );
   }

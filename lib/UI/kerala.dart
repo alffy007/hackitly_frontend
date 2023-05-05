@@ -4,11 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'chatbot.dart';
 
 class Kerala extends StatelessWidget {
+  const Kerala({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(25.0),
+      backgroundColor: const Color.fromARGB(255, 255, 213, 115),
+      body: SafeArea(
+        top: true,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -228,48 +231,6 @@ class Kerala extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class DetailPage extends StatelessWidget {
-  final String title;
-  final String imagePath;
-
-  DetailPage(this.title, this.imagePath);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            height: 200,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(imagePath),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Center(
-              child: Text(
-                title,
-                style: TextStyle(fontSize: 24, color: Colors.white),
-              ),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(16),
-              child: Text(
-                'This is the detail page for $title.',
-                style: TextStyle(fontSize: 18),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

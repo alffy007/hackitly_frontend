@@ -9,7 +9,7 @@ class Kerala extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 213, 115),
+      // backgroundColor: const Color.fromARGB(255, 255, 213, 115),
       body: SafeArea(
         top: true,
         child: Column(
@@ -32,7 +32,7 @@ class Kerala extends StatelessWidget {
             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(left: 30, right: 90),
+                  padding: EdgeInsets.only(left: 50, right: 100),
                   child: Text(
                     textAlign: TextAlign.left,
                     'Popular Places',

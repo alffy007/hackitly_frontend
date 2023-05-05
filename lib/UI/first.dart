@@ -28,7 +28,7 @@ class _FirstState extends State<First> {
                 'assets/images/firstback1.jpg',
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 35, top: 525),
+                padding: const EdgeInsets.only(left: 35, top: 550),
                 child: Text(
                   "Welcome to",
                   textAlign: TextAlign.center,
@@ -47,7 +47,7 @@ class _FirstState extends State<First> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 35),
+                padding: const EdgeInsets.only(left: 35, bottom: 50),
                 child: Text(
                   "Incredible\nIndia",
                   textAlign: TextAlign.left,
@@ -64,17 +64,24 @@ class _FirstState extends State<First> {
               const SizedBox(
                 width: 40,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginView()),
-                  );
-                },
-                child: const Icon(
-                  Icons.arrow_circle_right_outlined,
-                  color: Colors.white,
-                  size: 70.0,
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginView()),
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 120),
+                    child: const Icon(
+                      Icons.arrow_circle_right_outlined,
+                      color: Colors.white,
+                      size: 70.0,
+                    ),
+                  ),
                 ),
               ),
             ],

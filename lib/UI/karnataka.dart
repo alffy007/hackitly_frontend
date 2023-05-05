@@ -12,7 +12,7 @@ class Karnataka extends StatelessWidget {
       body: SafeArea(
         top: true,
         child: Container(
-            decoration: const BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/travel.png"),
                 fit: BoxFit.cover,
@@ -55,10 +55,9 @@ class Karnataka extends StatelessWidget {
                     width: 100,
                     height: 40,
                     child: ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(30),
                       child: Card(
                         color: const Color.fromARGB(255, 0, 0, 0),
-                       
                         child: Padding(
                           padding: const EdgeInsets.only(left: 27, top: 9),
                           child: Text(
@@ -99,16 +98,16 @@ class Karnataka extends StatelessWidget {
                               );
                             },
                             child: ClipRRect(
-                                borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(30),
                               child: Card(
-                              
                                 child: Center(
                                   child: Container(
                                     width: 325,
                                     height: 200,
                                     decoration: const BoxDecoration(
                                       image: DecorationImage(
-                                        image: AssetImage('assets/images/kala.jpg'),
+                                        image: AssetImage(
+                                            'assets/images/hampi.jpg'),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -116,13 +115,13 @@ class Karnataka extends StatelessWidget {
                                       padding: const EdgeInsets.only(
                                           left: 30, top: 140.0),
                                       child: Text(
-                                        'Kerala Kalamandalam',
+                                        'Hampi',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.getFont(
                                           "Mitr",
                                           textStyle: const TextStyle(
-                                            color:
-                                                Color.fromARGB(255, 255, 255, 255),
+                                            color: Color.fromARGB(
+                                                255, 255, 255, 255),
                                             fontSize: 20,
                                           ),
                                         ),
@@ -155,7 +154,7 @@ class Karnataka extends StatelessWidget {
                               borderRadius: BorderRadius.circular(30),
                               child: Card(
                                 // color: Color.fromARGB(255, 0, 0, 0),
-                            
+
                                 child: Center(
                                   child: Container(
                                     width: 325,
@@ -163,7 +162,7 @@ class Karnataka extends StatelessWidget {
                                     decoration: const BoxDecoration(
                                       image: DecorationImage(
                                         image: AssetImage(
-                                            'assets/images/kuttanad.jpg'),
+                                            'assets/images/Mysurupalace.jpg'),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -171,13 +170,13 @@ class Karnataka extends StatelessWidget {
                                       padding: const EdgeInsets.only(
                                           left: 30, top: 140.0),
                                       child: Text(
-                                        'Kuttanad',
+                                        'Mysuru Palace',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.getFont(
                                           "Mitr",
                                           textStyle: const TextStyle(
-                                            color:
-                                                Color.fromARGB(255, 255, 255, 255),
+                                            color: Color.fromARGB(
+                                                255, 255, 255, 255),
                                             fontSize: 20,
                                           ),
                                         ),
@@ -216,7 +215,7 @@ class Karnataka extends StatelessWidget {
                                     decoration: const BoxDecoration(
                                       image: DecorationImage(
                                         image: AssetImage(
-                                            'assets/images/places-to-visit-in-fort-kochi.jpg'),
+                                            'assets/images/golgumbas.jpg'),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -224,7 +223,7 @@ class Karnataka extends StatelessWidget {
                                       padding: const EdgeInsets.only(
                                           left: 30, top: 140.0),
                                       child: Text(
-                                        'Fort Kochi',
+                                        'Gol Gumbas',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.getFont(
                                           "Mitr",

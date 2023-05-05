@@ -107,7 +107,7 @@ class Delhi extends StatelessWidget {
                                     decoration: const BoxDecoration(
                                       image: DecorationImage(
                                         image: AssetImage(
-                                            'assets/images/kala.jpg'),
+                                            'assets/images/redfort.jpg'),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -115,7 +115,7 @@ class Delhi extends StatelessWidget {
                                       padding: const EdgeInsets.only(
                                           left: 30, top: 140.0),
                                       child: Text(
-                                        'Kerala Kalamandalam',
+                                        'Red Fort',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.getFont(
                                           "Mitr",
@@ -161,8 +161,8 @@ class Delhi extends StatelessWidget {
                                     height: 200,
                                     decoration: const BoxDecoration(
                                       image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/kuttanad.jpg'),
+                                        image:
+                                            AssetImage('assets/images/taj.jpg'),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -170,7 +170,7 @@ class Delhi extends StatelessWidget {
                                       padding: const EdgeInsets.only(
                                           left: 30, top: 140.0),
                                       child: Text(
-                                        'Kuttanad',
+                                        'Taj Mahal',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.getFont(
                                           "Mitr",
@@ -215,7 +215,7 @@ class Delhi extends StatelessWidget {
                                     decoration: const BoxDecoration(
                                       image: DecorationImage(
                                         image: AssetImage(
-                                            'assets/images/places-to-visit-in-fort-kochi.jpg'),
+                                            'assets/images/qutab.jpg'),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -223,7 +223,7 @@ class Delhi extends StatelessWidget {
                                       padding: const EdgeInsets.only(
                                           left: 30, top: 140.0),
                                       child: Text(
-                                        'Fort Kochi',
+                                        'Qutub Minar',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.getFont(
                                           "Mitr",

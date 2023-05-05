@@ -154,6 +154,7 @@ class _LoginViewState extends State<LoginView> {
                                           .instance
                                           .signInWithEmailAndPassword(
                                               email: email, password: password);
+                                      // ignore: use_build_context_synchronously
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
@@ -162,6 +163,7 @@ class _LoginViewState extends State<LoginView> {
                                       );
                                       print(userCredentials);
                                     } on FirebaseAuthException catch (e) {
+
                                       if (e.code == "user-not-found") {
                                         print("Invalid email-id ");
                                       } else if (e.code == "wrong-password") {

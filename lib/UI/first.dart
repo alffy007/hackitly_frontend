@@ -64,17 +64,21 @@ class _FirstState extends State<First> {
               const SizedBox(
                 width: 40,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginView()),
-                  );
-                },
-                child: const Icon(
-                  Icons.arrow_circle_right_outlined,
-                  color: Colors.white,
-                  size: 70.0,
+              Padding(
+                padding: const EdgeInsets.only(top: 110, right: 20),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginView()),
+                    );
+                  },
+                  child: const Icon(
+                    Icons.arrow_circle_right_outlined,
+                    color: Colors.black,
+                    size: 70.0,
+                  ),
                 ),
               ),
             ],

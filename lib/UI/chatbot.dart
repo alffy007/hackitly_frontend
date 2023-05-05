@@ -23,8 +23,11 @@ class _ConversationScreenState extends State<ConversationScreen> {
   Widget chatMessageList() {
     return Stack(children: [
       Center(
-          child: Image.asset('assets/images/loginimg.png',
-              opacity: const AlwaysStoppedAnimation(.5))),
+        child: Image.asset(
+          'assets/images/loginimg.png',
+          opacity: const AlwaysStoppedAnimation(.5),
+        ),
+      ),
       Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -154,8 +157,16 @@ class _ConversationScreenState extends State<ConversationScreen> {
                 }
               });
 
-              return Column(
-                children: [Expanded(child: chatMessageList()), MessageBar()],
+              return Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/travel.png"),
+                      fit: BoxFit.cover,
+                      opacity: 0.4),
+                ),
+                child: Column(
+                  children: [Expanded(child: chatMessageList()), MessageBar()],
+                ),
               );
             }));
   }

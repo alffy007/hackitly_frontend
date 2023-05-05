@@ -4,6 +4,8 @@ import 'package:proton/UI/homepage.dart';
 import 'package:proton/UI/optionpage.dart';
 import 'package:proton/UI/profilepage.dart';
 
+import 'package:proton/UI/tripplanningpage.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -12,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List screens = [const Homepage(), const OptionPage(), const ProfilePage()];
+  List screens = [const Homepage(),  TripPlanningPage(), const ProfilePage()];
   int index = 0;
 
   @override

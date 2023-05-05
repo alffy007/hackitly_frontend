@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
@@ -60,7 +59,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
     );
   }
 
-  FirebaseDatabase database = FirebaseDatabase.instance;
+
   var student = {};
   int index = 0;
   bool sended = false;

@@ -99,7 +99,7 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
         ),
-        const ServiceWidget(),
+        const Center(child: ServiceWidget()),
         Padding(
           padding: const EdgeInsets.only(left: 20, top: 25),
           child: Text(

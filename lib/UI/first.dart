@@ -73,7 +73,7 @@ class _FirstState extends State<First> {
                 },
                 child: const Icon(
                   Icons.arrow_circle_right_outlined,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 0, 0, 0),
                   size: 70.0,
                 ),
               ),

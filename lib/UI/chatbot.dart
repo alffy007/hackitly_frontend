@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_database/firebase_database.dart';
-import '../services/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'dart:async';
 
 class ConversationScreen extends StatefulWidget {
   const ConversationScreen(
@@ -16,10 +17,54 @@ class ConversationScreen extends StatefulWidget {
 
 class _ConversationScreenState extends State<ConversationScreen> {
   TextEditingController messageController = TextEditingController();
+  Future<Album>? _futureAlbum;
+
+  FutureBuilder<Album> buildFutureBuilder(int index) {
+    return FutureBuilder<Album>(
+      future: _futureAlbum,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          student[index] = snapshot.data!.answer;
+
+          return Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/travel.png"),
+                  fit: BoxFit.cover,
+                  opacity: 0.4),
+            ),
+            child: Column(
+              children: [Expanded(child: chatMessageList()), MessageBar()],
+            ),
+          );
+        } else if (snapshot.hasError) {
+          return Text('${snapshot.error}');
+        }
+
+        return const CircularProgressIndicator();
+      },
+    );
+  }
+
+  Widget buildPastBuilder() {
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/images/travel.png"),
+            fit: BoxFit.cover,
+            opacity: 0.4),
+      ),
+      child: Column(
+        children: [Expanded(child: chatMessageList()), MessageBar()],
+      ),
+    );
+  }
+
   FirebaseDatabase database = FirebaseDatabase.instance;
   var student = {};
   int index = 0;
-  String _msg = '';
+  bool sended = false;
+
   Widget chatMessageList() {
     return Stack(children: [
       Center(
@@ -37,16 +82,14 @@ class _ConversationScreenState extends State<ConversationScreen> {
                 reverse: true,
                 itemCount: student.length,
                 itemBuilder: (BuildContext context, int index) {
-                  int lastIndex = (student.length - index) - 1;
-                  if (student['user$lastIndex'] == null) {
-                    _msg = student['user$lastIndex bot'];
+                  int lastIndex = (student.length - index);
+                  if (index.isEven) {
+                    sended = false;
                   } else {
-                    _msg = student['user$lastIndex'];
+                    sended = true;
                   }
                   return MessageTiles(
-                      message: _msg,
-                      sendbyme:
-                          student.keys.toList().contains('user$lastIndex'));
+                      message: student[index], sendbyme: sended);
                 }),
           ),
         ],
@@ -57,11 +100,10 @@ class _ConversationScreenState extends State<ConversationScreen> {
   sendMessage() {
     if (messageController.text.isNotEmpty) {
       setState(() {
-        student['user$index'] = messageController.text;
-
+        student[index+1] = messageController.text;
+        _futureAlbum = createAlbum(messageController.text);
         messageController.text = "";
-
-        index += 1;
+        index + 1;
       });
     }
   }
@@ -124,52 +166,59 @@ class _ConversationScreenState extends State<ConversationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 245, 244, 246),
-        appBar: AppBar(
-          title: Text(
-            widget.userName,
-            style: GoogleFonts.poppins(
-                textStyle: const TextStyle(
-              color: Color.fromARGB(255, 248, 248, 248),
-              fontSize: 22,
-              fontWeight: FontWeight.w500,
-            )),
-          ),
-          shadowColor: Colors.purple,
-          toolbarHeight: 70,
+      backgroundColor: const Color.fromARGB(255, 245, 244, 246),
+      appBar: AppBar(
+        title: Text(
+          widget.userName,
+          style: GoogleFonts.poppins(
+              textStyle: const TextStyle(
+            color: Color.fromARGB(255, 248, 248, 248),
+            fontSize: 22,
+            fontWeight: FontWeight.w500,
+          )),
         ),
-        body: FutureBuilder(
-            future: Firebase.initializeApp(
-              options: DefaultFirebaseOptions.currentPlatform,
-            ),
-            builder: (context, snapshot) {
-              DatabaseReference testref = FirebaseDatabase.instance
-                  .ref()
-                  .child('kerala')
-                  .child('fort kochi');
+        shadowColor: Colors.purple,
+        toolbarHeight: 70,
+      ),
+      body: (_futureAlbum == null)
+          ? buildPastBuilder()
+          : buildFutureBuilder(index),
+    );
+  }
+}
 
-              testref.child('answer').onValue.listen((event) {
-                if (event.snapshot.value.toString() != '') {
-                  setState(() {
-                    student['user$index bot'] = event.snapshot.value.toString();
-                    index++;
-                  });
-                  print(event.snapshot.value.toString());
-                }
-              });
+Future<Album> createAlbum(String question) async {
+  final response = await http.post(
+    Uri.parse('https://pyg-backend.up.railway.app/chatbot-api'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      "query": question,
+    }),
+  );
 
-              return Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/travel.png"),
-                      fit: BoxFit.cover,
-                      opacity: 0.4),
-                ),
-                child: Column(
-                  children: [Expanded(child: chatMessageList()), MessageBar()],
-                ),
-              );
-            }));
+  if (response.statusCode == 200) {
+    // If the server did return a 201 CREATED response,
+    // then parse the JSON.
+    print(jsonDecode(response.body));
+    return Album.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 201 CREATED response,
+    // then throw an exception.
+    throw Exception('Failed to create album');
+  }
+}
+
+class Album {
+  final String answer;
+
+  const Album({required this.answer});
+
+  factory Album.fromJson(Map<String, dynamic> json) {
+    return Album(
+      answer: json['response'],
+    );
   }
 }
 
@@ -188,7 +237,7 @@ class MessageTiles extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
           child: Container(
-              constraints: const BoxConstraints(maxWidth: 250),
+              constraints: const BoxConstraints(maxWidth: 200),
               decoration: BoxDecoration(
                 gradient: sendbyme
                     ? const LinearGradient(
